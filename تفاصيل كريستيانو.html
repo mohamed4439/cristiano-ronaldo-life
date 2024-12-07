@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حياة كريستيانو رونالدو</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .info {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #2a9d8f;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>حياة كريستيانو رونالدو</h1>
+
+    <div class="container">
+        <h2>معلومات عن كريستيانو</h2>
+        <p>في هذا القسم ستجد معلومات مفصلة عن حياة كريستيانو رونالدو بما في ذلك عمره وعدد أهدافه والمباريات التي لعبها.</p>
+
+        <div class="info">
+            <p>تاريخ الميلاد: <span class="highlight" id="birthDate">5 فبراير 1985</span></p>
+            <p>العمر الحالي: <span class="highlight" id="age">0</span> سنة، <span class="highlight" id="months">0</span> أشهر، <span class="highlight" id="days">0</span> أيام</p>
+            <p>الوقت منذ ولادته: <span class="highlight" id="timeElapsed">0</span> ساعات، <span class="highlight" id="minutesElapsed">0</span> دقائق، <span class="highlight" id="secondsElapsed">0</span> ثواني</p>
+            <p>عدد الأهداف: <span class="highlight" id="goals">915</span></p>
+            <p>عدد المباريات: <span class="highlight" id="matches">1150</span></p>
+        </div>
+    </div>
+
+    <script>
+        // معلومات كريستيانو
+        const birthDate = new Date("1985-02-05T00:00:00Z"); // تاريخ الميلاد
+        const goals = 915; // عدد الأهداف حتى 2024
+        const matches = 1150; // عدد المباريات حتى 2024
+
+        function updateInfo() {
+            const currentDate = new Date();
+
+            // حساب العمر بالسنوات والشهور والأيام
+            const ageInMilliseconds = currentDate - birthDate;
+            const ageDate = new Date(ageInMilliseconds);
+            const years = ageDate.getUTCFullYear() - 1970;
+            const months = ageDate.getUTCMonth();
+            const days = ageDate.getUTCDate() - 1;
+
+            // حساب الوقت المنقضي بالثواني والدقائق والساعات
+            const totalSeconds = Math.floor(ageInMilliseconds / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+
+            // تحديث المعلومات على الصفحة
+            document.getElementById("age").innerText = years;
+            document.getElementById("months").innerText = months;
+            document.getElementById("days").innerText = days;
+            document.getElementById("timeElapsed").innerText = totalHours;
+            document.getElementById("minutesElapsed").innerText = totalMinutes;
+            document.getElementById("secondsElapsed").innerText = totalSeconds;
+
+            // تحديث الأهداف والمباريات
+            document.getElementById("goals").innerText = goals;
+            document.getElementById("matches").innerText = matches;
+        }
+
+        // تحديث المعلومات كل ثانية (1000 ميلي ثانية)
+        setInterval(updateInfo, 1000);
+
+        // تحديث المعلومات عند تحميل الصفحة
+        updateInfo();
+    </script>
+    
+    <footer>
+        <p>Created by: Mohamed Sobhi</p>
+        <p>Contact: 01272211822</p>
+    </footer>
+
+</body>
+</html>
